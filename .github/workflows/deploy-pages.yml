@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,12 +26,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install deps
-        run: npm ci
+        working-directory: valentine-site
+        run: npm install
 
       - name: Build
+        working-directory: valentine-site
         run: npm run build
 
       - name: Setup Pages
@@ -39,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: valentine-site/dist
 
   deploy:
     runs-on: ubuntu-latest
