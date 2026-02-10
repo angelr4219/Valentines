@@ -2,6 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 
 type View = "closed" | "open" | "flip";
+// ---- Photos ----
+import pic1 from "./assets/jpegmini_optimized (1)/IMG_0378.jpg";
+import pic2 from "./assets/jpegmini_optimized (1)/IMG_1200.jpg";
+import pic3 from "./assets/jpegmini_optimized (1)/IMG_2173.jpg";
+import pic4 from "./assets/jpegmini_optimized (1)/IMG_2744.jpg";
+import pic5 from "./assets/jpegmini_optimized (1)/IMG_4298.jpg";
+import pic6 from "./assets/jpegmini_optimized (1)/IMG_4353.jpg";
+// ------------------------------------------
+
+// ---- Spotify (REPLACE THIS URL ONLY) ----
+const spotifyEmbedUrl =
+  "https://open.spotify.com/embed/playlist/1Vd2ZpwrQdt0xNTn5bCWbn?utm_source=generator";
+
+
+// ----------------------------------------
 
 function TenorGif() {
   useEffect(() => {
@@ -53,19 +68,22 @@ export default function App() {
   const [view, setView] = useState<View>("closed");
 
   const shortMsg =
-    "Poke, you’re my favorite person, my favorite feeling, and my favorite future.";
+    "Poke, you’re my favorite person. I’m so grateful for you every day, but especially today I love you the mostest. Will you be my Valentine?";
   const longMsg =
-    "Thank you for being you. I love the way you make ordinary days feel softer and brighter. I’m so lucky I get to love you.";
+    "Thank you for being you. I love the way you make my days better and you amke me better. I’m so lucky I get to love you. Eres el amor de mi vida. Te amo con todo mi corazón.";
 
-  const photos = useMemo(
-    () => [
-      { label: "Photo 1", className: "p1" },
-      { label: "Photo 2", className: "p2" },
-      { label: "Photo 3", className: "p3" },
-      { label: "Photo 4", className: "p4" },
-    ],
-    []
-  );
+    const photos = useMemo(
+      () => [
+        { label: "Photo 1", src: pic1 },
+        { label: "Photo 2", src: pic2 },
+        { label: "Photo 3", src: pic3 },
+        { label: "Photo 4", src: pic4 },
+        { label: "Photo 5", src: pic5 },
+        { label: "Photo 6", src: pic6 },
+      ],
+      []
+    );
+    
 
   function acceptYes() {
     setAccepted(true);
@@ -96,7 +114,7 @@ export default function App() {
       <main className="wrap">
         {!accepted ? (
           <section className="askCard">
-            <h1 className="title">Hey {toName} 💖</h1>
+            <h1 className="title">Hey {toName} </h1>
             <p className="subtitle">
               <strong>{nickname}</strong>… do you want to be my Valentine?
             </p>
@@ -111,7 +129,7 @@ export default function App() {
                 style={{ transform: `scale(${yesScale})` }}
                 onClick={acceptYes}
               >
-                Yes 💘
+                Yes 
               </button>
 
               <button
@@ -215,16 +233,33 @@ export default function App() {
                     <div className="photoSide">
                       <div className="photoHeader">
                         <h2>Us 🫶</h2>
-                        <p>Replace the placeholders with your favorites.</p>
+                        <p></p>
                       </div>
+                      <div className="spotifyEmbedCard">
+  <h3 className="spotifyTitle">A little soundtrack for us 🎧</h3>
+  <iframe
+    className="spotifyFrame"
+    src={spotifyEmbedUrl}
+    width="100%"
+    height="352"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+    title="Spotify player"
+  />
+</div>
+
 
                       <div className="photoGrid">
-                        {photos.map((p) => (
-                          <div key={p.label} className={`photo ${p.className}`}>
-                            <span className="photoLabel">{p.label}</span>
-                          </div>
-                        ))}
-                      </div>
+  {photos.map((p) => (
+    <div key={p.label} className="photo">
+      <img className="photoImg" src={p.src} alt={p.label} loading="lazy" />
+      <span className="photoLabel">{p.label}</span>
+    </div>
+  ))}
+</div>
+
+
 
                       <div className="controls">
                         <button className="btn" onClick={() => setView("open")}>
@@ -235,10 +270,7 @@ export default function App() {
                         </button>
                       </div>
 
-                      <p className="tinyTip">
-                        Tip: Put images in <code>src/assets</code> and set them in CSS
-                        (see <code>.p1</code>–<code>.p4</code>).
-                      </p>
+                      
                     </div>
                   </div>
                 </div>

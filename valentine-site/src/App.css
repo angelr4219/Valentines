@@ -313,12 +313,7 @@ body{
   color: rgba(255,255,255,0.86);
 }
 
-/* Put real images here (uncomment & add files in src/assets)
-.p1 { background-image: url("./assets/pic1.jpg"); background-size: cover; background-position: center; }
-.p2 { background-image: url("./assets/pic2.jpg"); background-size: cover; background-position: center; }
-.p3 { background-image: url("./assets/pic3.jpg"); background-size: cover; background-position: center; }
-.p4 { background-image: url("./assets/pic4.jpg"); background-size: cover; background-position: center; }
-*/
+
 
 .tinyTip{
   margin:12px 0 0;
@@ -475,4 +470,151 @@ img, video, canvas, iframe {
     transition: none !important;
     animation: none !important;
   }
+}
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.photoImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoLabel{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  backdrop-filter: blur(6px);
+}
+/* Photo tiles */
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  height: 190px; /* adjust if you want */
+}
+
+.photoImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoLabel{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+/* Spotify section */
+.spotifyCard{
+  width: 100%;
+  max-width: 720px;
+  margin: 16px auto 18px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.spotifyCard h3{
+  margin: 0 0 6px;
+}
+
+.spotifyText{
+  margin: 0 0 12px;
+  opacity: 0.9;
+}
+
+.spotifyHint{
+  margin: 10px 0 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.photoGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 520px){
+  .photoGrid{ grid-template-columns: 1fr; }
+  .photo{ height: 170px; }
+}
+/* ----- Photos (image tiles) ----- */
+.photoGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.photo{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  height: 190px;
+}
+
+.photoImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoLabel{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+/* Mobile: one column */
+@media (max-width: 520px){
+  .photoGrid{ grid-template-columns: 1fr; }
+  .photo{ height: 170px; }
+}
+
+/* ----- Spotify embed card ----- */
+.spotifyEmbedCard{
+  width: 100%;
+  max-width: 760px;
+  margin: 14px auto 18px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.spotifyTitle{
+  margin: 0 0 10px;
+}
+
+.spotifyFrame{
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
 }
